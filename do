@@ -24,14 +24,13 @@ tag() {
   esac
   echo $NEW_VERSION > ./contract/CLIENTS_VERSION
   git add ./contract/CLIENTS_VERSION
-  git checkout -b "v$NEW_VERSION"
   git commit -m "Update RPC to v$NEW_VERSION"
   git tag -a "v$NEW_VERSION" -m "v$NEW_VERSION"
 
   read -p "Do you want to push the commit and tag? (y/n): " -n 1 -r
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-      git push origin "v$NEW_VERSION"
+      git push origin HEAD
       git push --tags
   fi
 }
