@@ -10,6 +10,7 @@ on:
 
 jobs:
   create-tag:
+    name: Creating ${{ github.event.inputs.version }} release
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -18,7 +19,7 @@ jobs:
       run: |
         echo "Hello version ${{ github.event.inputs.version }}"
         git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.name "GitHub Action and ${{ github.actor }}"
         ./do tag "${{github.event.inputs.version}}"
     - name: Push changes
       uses: ad-m/github-push-action@master
