@@ -19,7 +19,7 @@ jobs:
       run: |
         echo "Hello version ${{ github.event.inputs.version }}"
         git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action and ${{ github.actor }}"
+        git config --local user.name "GitHub Action"
         ./do tag "${{github.event.inputs.version}}"
     - name: Push changes
       uses: ad-m/github-push-action@master
