@@ -7,11 +7,11 @@ tag() {
   case "${ACTION_ARG}" in
     major)
       echo "🤾 Do: Creating a major version release."
-      NEW_VERSION=$(cat ./contract/CLIENTS_VERSION | awk -F. -v OFS=. '{$1++;print}')
+      NEW_VERSION=$(cat ./contract/CLIENTS_VERSION | awk -F. -v OFS=. '{$1++;$2=0;$3=0;print}')
     ;;
     minor)
       echo "🤾 Do: Creating a minor version release."
-      NEW_VERSION=$(cat ./contract/CLIENTS_VERSION | awk -F. -v OFS=. '{$2++;print}')
+      NEW_VERSION=$(cat ./contract/CLIENTS_VERSION | awk -F. -v OFS=. '{$2++;$3=0;print}')
     ;;
     patch)
       echo "🤾 Do: Creating a patch version release."
