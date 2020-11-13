@@ -27,12 +27,8 @@ tag() {
   git commit -m "Update RPC to v$NEW_VERSION"
   git tag -a "v$NEW_VERSION" -m "v$NEW_VERSION"
 
-  read -p "Do you want to push the commit and tag? (y/n): " -n 1 -r
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-      git push origin HEAD
-      git push --tags
-  fi
+  git push origin HEAD
+  git push --tags
 }
 
 echo "🚪 Welcome to Release Fu (Node) 🚪"
