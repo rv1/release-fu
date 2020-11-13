@@ -17,4 +17,6 @@ jobs:
     - name: Creating new tag
       run: |
         echo "Hello version ${{ github.event.inputs.version }}"
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         ./do tag "${{github.event.inputs.version}}"
