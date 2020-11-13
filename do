@@ -26,9 +26,6 @@ tag() {
   git add ./contract/CLIENTS_VERSION
   git commit -m "Update RPC to v$NEW_VERSION"
   git tag -a "v$NEW_VERSION" -m "v$NEW_VERSION"
-
-  git push origin HEAD
-  git push --tags
 }
 
 echo "🚪 Welcome to Release Fu (Node) 🚪"
